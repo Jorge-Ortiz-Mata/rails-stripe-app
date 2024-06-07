@@ -3,6 +3,8 @@ class Customer < ApplicationRecord
 
   after_create :create_stripe_customer
 
+  has_many :payment_methods
+
   private
 
   def create_stripe_customer

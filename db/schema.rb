@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_07_004342) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_07_011739) do
   create_table "customers", force: :cascade do |t|
     t.string "email"
     t.string "name"
@@ -19,4 +19,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_07_004342) do
     t.string "customer_stripe_id"
   end
 
+  create_table "payment_methods", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.string "payment_method_stripe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_payment_methods_on_customer_id"
+  end
+
+  add_foreign_key "payment_methods", "customers"
 end

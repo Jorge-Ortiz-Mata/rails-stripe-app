@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  payment_method_stripe_id: MyString
+
+two:
+  customer: two
+  payment_method_stripe_id: MyString
