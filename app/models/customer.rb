@@ -8,7 +8,7 @@ class Customer < ApplicationRecord
   private
 
   def create_stripe_customer
-    stripe_customer = StripeService.new(self)
+    stripe_customer = StripeService::Customer.new(self)
     customer_stripe_id = stripe_customer.create_customer
     self.update(customer_stripe_id:)
   end

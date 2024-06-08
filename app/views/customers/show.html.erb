@@ -1,4 +1,4 @@
-<div class="mx-auto md:w-2/3 w-full flex">
+<div class="mx-auto md:w-2/3 w-full flex flex-col gap-5">
   <div class="mx-auto">
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
@@ -11,5 +11,12 @@
     <div class="inline-block ml-2">
       <%= button_to "Destroy this customer", @customer, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
+  </div>
+
+  <hr>
+
+  <div class="flex items-center w-full justify-between">
+    <h2 class="font-semibold text-xl">Cuentas de banco</h2>
+    <%= link_to 'Add payment method', new_customer_payment_method_path(@customer), class: 'border px-4 py-2 rounded-full text-sm font-semibold' %>
   </div>
 </div>

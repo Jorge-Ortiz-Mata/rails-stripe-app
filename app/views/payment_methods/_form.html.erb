@@ -1,0 +1,42 @@
+<%= form_with(model: payment_method_form, url: customer_payment_methods_path(customer), class: "contents", id: "payment-method-form") do |form| %>
+  <% if payment_method_form.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(payment_method_form.errors.count, "error") %> prohibited this payment_method_form from being saved:</h2>
+
+      <ul>
+        <% payment_method_form.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :type %>
+    <%= form.text_field :type, value: 'card', class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :number %>
+    <%= form.text_field :number, maxLength: 16, value: '4242424242424242', class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :exp_month %>
+    <%= form.text_field :exp_month, value: '12', class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :exp_year %>
+    <%= form.text_field :exp_year, value: '34', class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :cvc %>
+    <%= form.text_field :cvc, value: '123', class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

@@ -6,13 +6,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto mt-28 px-5 flex flex-col w-full">
+      <% if notice %>
+        <div class="fex w-full border border-red-600 bg-red-50 rounded-xl p-2 text-red-600 absolute top-0 left-0">
+          <%= notice %>
+        </div>
+      <% end %>
+
       <%= yield %>
     </main>
   </body>
