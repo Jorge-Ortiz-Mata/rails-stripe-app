@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  scope :stripe do
+    post '/attach/payment/method', to: 'stripe#attach_payment_method'
+  end
+
   scope :credentials do
     get '/stripe', to: 'credentials#stripe'
     get '/firebase', to: 'credentials#firebase'
   end
 
   resources :customers do
-    resources :payment_methods
+    resources :payment_methods, only: %i[new destroy]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

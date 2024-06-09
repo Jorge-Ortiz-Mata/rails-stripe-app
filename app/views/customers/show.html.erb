@@ -19,4 +19,12 @@
     <h2 class="font-semibold text-xl">Cuentas de banco</h2>
     <%= link_to 'Add payment method', new_customer_payment_method_path(@customer), class: 'border px-4 py-2 rounded-full text-sm font-semibold' %>
   </div>
+
+  <hr>
+
+  <div class="flex flex-col w-full gap-5">
+    <% @payment_methods[:data].each do |payment_method| %>
+      <%= render 'payment_methods/payment_method', payment_method: payment_method %>
+    <% end %>
+  </div>
 </div>

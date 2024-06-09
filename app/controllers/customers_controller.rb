@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @payment_method = PaymentMethodForm.new
+    @payment_methods = StripeService::Customer.list_payment_methods(@customer.customer_stripe_id)
   end
 
   def new

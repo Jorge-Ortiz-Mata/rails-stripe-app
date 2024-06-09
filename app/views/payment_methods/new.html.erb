@@ -1,7 +1,9 @@
-<div class="mx-auto md:w-2/3 w-full">
+<div class="mx-auto md:w-2/3 w-full flex flex-col gap-10">
   <h1 class="font-bold text-4xl">New payment method</h1>
 
   <%= render "form", { payment_method_form: @payment_method_form, customer: @customer } %>
 
-  <%= link_to "Cancel", customer_path(@customer), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="flex items-center justify-end">
+    <%= link_to "Cancel", customer_path(@customer), class: "text-sm text-white px-4 py-2 bg-red-500 rounded-xl font-semibold" %>
+  </div>
 </div>

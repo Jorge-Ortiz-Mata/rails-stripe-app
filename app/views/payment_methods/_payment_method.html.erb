@@ -1,32 +1,31 @@
-<div id="<%= dom_id payment_method %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Type:</strong>
-    <%= payment_method.type %>
-  </p>
+<div class="border p-2 text-xs flex flex-col gap-4">
+  <div>
+    <span>Método de pago:</span>
+    <span><%= payment_method.type %></span>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Number:</strong>
-    <%= payment_method.number %>
-  </p>
+  <div>
+    <span>Código postal:</span>
+    <span><%= payment_method.billing_details.address.postal_code %></span>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Exp month:</strong>
-    <%= payment_method.exp_month %>
-  </p>
+  <div>
+    <span>País:</span>
+    <span><%= payment_method.card.country %></span>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Exp year:</strong>
-    <%= payment_method.exp_year %>
-  </p>
+  <div>
+    <span>Tipo de tarjeta:</span>
+    <span><%= payment_method.card.display_brand %></span>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Cvc:</strong>
-    <%= payment_method.cvc %>
-  </p>
+  <div>
+    <span>Últimos 4 digitos:</span>
+    <span><%= payment_method.card.last4 %></span>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Customer:</strong>
-    <%= payment_method.customer_id %>
-  </p>
-
+  <div class="flex items-center gap-2">
+    <span>Opciones:</span>
+    <%= button_to 'Eliminar', customer_payment_method_path(@customer, payment_method.id), method: :delete, class: 'text-xs text-white bg-red-500 py-1 px-2 rounded font-medium', form: { data: { turbo_confirm: 'Estás seguro?' } } %>
+  </div>
 </div>

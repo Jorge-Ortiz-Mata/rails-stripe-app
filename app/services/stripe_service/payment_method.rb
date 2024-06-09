@@ -25,10 +25,16 @@ module StripeService
       stripe_payment_method.id
     end
 
-    def associate_payment_method_with_customer(stripe_payment_method_id)
+    def self.attach_payment_method(payment_method_id, customer_id)
       Stripe.api_key = Rails.application.credentials.stripe.secret_key
 
-      Stripe::PaymentMethod.attach(stripe_payment_method_id, { customer: @stripe_customer_id })
+      Stripe::PaymentMethod.attach(payment_method_id, { customer: customer_id })
+    end
+
+    def self.delete_payment_method(payment_method_id)
+      Stripe.api_key = Rails.application.credentials.stripe.secret_key
+
+      Stripe::PaymentMethod.detach(payment_method_id)
     end
   end
 end
