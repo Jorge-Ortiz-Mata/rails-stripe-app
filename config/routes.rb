@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :products
   scope :stripe do
     post '/attach/payment/method', to: 'stripe#attach_payment_method'
   end

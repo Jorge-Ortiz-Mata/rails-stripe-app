@@ -1,0 +1,31 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <div>
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Name:</strong>
+        <%= @product.name %>
+      </p>
+
+      <p class="my-5">
+        <strong class="block font-medium mb-1">ID:</strong>
+        <%= @product.id %>
+        <%= @product.default_price %>
+      </p>
+
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Price:</strong>
+        <%= @price.unit_amount_decimal %>
+      </p>
+
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Currency:</strong>
+        <%= @price.currency %>
+      </p>
+    </div>
+
+  </div>
+</div>
